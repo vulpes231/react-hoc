@@ -9,17 +9,17 @@ const withFetch = (WrappedComponent, entity, dataExtractor) => {
 
     componentDidMount() {
       const fetchData = async () => {
-        const url = `https://dummyjson.com/${entity}`;
+        const url = `https://jsonplaceholder.typicode.com/${entity}`;
         const res = await fetch(url);
         const response = await res.json();
 
         // console.log(response);
 
         const extractedData = dataExtractor(response);
-        console.log(extractedData);
+        // console.log(extractedData);
 
         if (response && dataExtractor && typeof dataExtractor === "function") {
-          // Use the callback version of setState to ensure the state update is applied correctly
+          console.log(extractedData);
           this.setState((prevState) => ({
             ...prevState,
             data: extractedData,

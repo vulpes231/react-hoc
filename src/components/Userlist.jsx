@@ -15,7 +15,7 @@ const Userlist = ({ data }) => {
 
 const dataExtractorForUser = (response) => {
   // Assuming the API response contains users in the "users" property
-  return response.data.users || [];
+  return response.data || [];
 };
 
 const SearchUser = withFetch(Userlist, "users", dataExtractorForUser);
